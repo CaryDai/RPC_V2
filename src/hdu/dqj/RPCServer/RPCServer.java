@@ -11,8 +11,15 @@ import hdu.dqj.RPCServer.Service.HelloServiceImpl;
  */
 public class RPCServer {
     public static void main(String[] args) throws Throwable {
-        ServerStub server = new ServerStub();
-        server.register(HelloService.class, HelloServiceImpl.class);
-        server.run();
+        // 为每个客户端创建一个线程。
+        new Thread(() -> {
+            try {
+                ServerStub server = new ServerStub();
+                server.register(HelloService.class, HelloServiceImpl.class);
+                server.run();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }
