@@ -14,8 +14,8 @@ import java.util.HashMap;
  * @Description 服务端用来接收并处理消息的类
  */
 public class ServerStub {
-    // 用来存放Server端对象的缓存
-    private HashMap<String, Class> remoteServices = new HashMap<String, Class>();
+    // 用来存放Server端服务对象的缓存
+    private HashMap<String, Class> remoteServices = new HashMap<>();
 
     // 把一个Server端对象放到缓存中
     public void register(Class className, Class remoteImpl) {
